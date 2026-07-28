@@ -34,7 +34,7 @@ ML_METRICS_PATH = PROJECT_ROOT / "artifacts" / "ml_metrics.json"
 SPACE_ML_METRICS_PATH = PROJECT_ROOT / "artifacts" / "space_ml_metrics.json"
 TRAINING_CHECKPOINT_PATH = PROJECT_ROOT / "artifacts" / "training_checkpoint.json"
 SPACE_MODEL_PATH = PROJECT_ROOT / "artifacts" / "space_category_model.pkl"
-HOST = os.environ.get("HOST", "127.0.0.1")
+HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = 8000
 
 
