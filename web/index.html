@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MessierAI | Object Recognition</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="stars"></div>
+
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <span>MessierAI</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#upload">Upload</a>
+          <a href="#results">Results</a>
+          <a href="#details">Details</a>
+          <a href="/dashboard">ML Dashboard</a>
+        </nav>
+
+        <a class="catalog-chip catalog-chip-link" href="/catalog">Messier Catalog</a>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-badge">AI-Powered Deep Space Analysis</div>
+          <h1>
+            Messier Object
+            <span>Recognition</span>
+          </h1>
+          <p>
+            Identify astronomical objects from images and explore their matching
+            Messier reference and star map.
+          </p>
+
+          <div class="hero-actions">
+            <label class="primary-button">
+              <input id="fileInput" type="file" accept=".jpg,.jpeg,.png,.bmp" hidden />
+              Upload Image
+            </label>
+            <button id="demoButton" class="secondary-button" type="button">
+              View Demo Results
+            </button>
+          </div>
+        </section>
+
+        <section id="upload" class="upload-section">
+          <div class="section-heading">
+            <h2>Upload &amp; Analyze</h2>
+            <p>Upload an astronomical image to identify the closest Messier object.</p>
+          </div>
+
+          <label id="dropzone" class="upload-card">
+            <input id="dropInput" type="file" accept=".jpg,.jpeg,.png,.bmp" hidden />
+            <div class="upload-icon">⇪</div>
+            <h3>Drag &amp; drop your image here</h3>
+            <p>or click to browse files</p>
+            <span>Supports JPG, JPEG, PNG</span>
+          </label>
+        </section>
+
+        <section id="loadingState" class="loading-state hidden">
+          <div class="section-heading">
+            <h2>Analyzing image...</h2>
+            <p>Running Messier recognition and fetching the matching sky map.</p>
+          </div>
+
+          <div class="skeleton-grid">
+            <div class="skeleton-card tall"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card wide"></div>
+            <div class="skeleton-card wide"></div>
+          </div>
+        </section>
+
+        <section id="errorState" class="error-state hidden">
+          <article class="glass-card error-card">
+            <div class="card-head">
+              <span class="eyebrow">Prediction Error</span>
+              <h3>We couldn't analyze that image</h3>
+              <p id="errorMessage">
+                Please try another astronomical image and run the recognition again.
+              </p>
+            </div>
+            <button id="retryButton" class="secondary-button" type="button">Try Again</button>
+          </article>
+        </section>
+
+        <section id="results" class="results-section hidden">
+          <div class="results-grid">
+            <article class="glass-card image-card">
+              <div class="card-head">
+                <span class="eyebrow">Input Image</span>
+                <h3>Your Uploaded Frame</h3>
+              </div>
+              <div class="image-frame">
+                <img id="uploadedPreview" src="../Dataset/Galaxy/M31.jpg" alt="Uploaded object preview" />
+              </div>
+            </article>
+
+            <article class="glass-card summary-card">
+              <div class="card-head">
+                <span class="eyebrow">Prediction Summary</span>
+                <h3 id="predictedTitle">M31 (Andromeda Galaxy)</h3>
+              </div>
+
+              <div class="summary-shell">
+                <div class="confidence-panel">
+                  <div class="confidence-ring">
+                    <div class="confidence-core">
+                      <strong id="confidenceValue">100%</strong>
+                      <span>Confidence</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="summary-meta">
+                  <div class="meta-row meta-box">
+                    <span>Messier ID</span>
+                    <strong id="messierId">M31</strong>
+                  </div>
+                  <div class="meta-row meta-box">
+                    <span>Category</span>
+                    <strong id="categoryValue">Galaxy</strong>
+                  </div>
+                  <div class="meta-row meta-box meta-status">
+                    <span>Status</span>
+                    <strong class="status-pill" id="confidenceLabel">Very High</strong>
+                  </div>
+                </div>
+              </div>
+
+              <p id="descriptionText" class="summary-description">
+                A massive system of stars, gas, dust, and dark matter held together by gravity.
+              </p>
+            </article>
+          </div>
+
+          <article class="glass-card info-card">
+            <div class="card-head">
+              <span class="eyebrow">Stellar Info</span>
+              <div class="stellar-header">
+  <h3 id="stellarInfoTitle">M31 | Andromeda Galaxy</h3>
+  <span class="gemini-badge">Powered by Gemini</span>
+</div>
+
+<p class="stellar-subtext">
+  A quick reference summary for the predicted Messier object.
+</p>
+            </div>
+            <div class="details-grid">
+              <div class="detail-item">
+                <span>Name</span>
+                <strong id="stellarInfoName">Andromeda Galaxy</strong>
+              </div>
+              <div class="detail-item">
+                <span>Constellation</span>
+                <strong id="stellarInfoConstellation">Andromeda</strong>
+              </div>
+              <div class="detail-item">
+                <span>Distance from Earth (Light Years)</span>
+                <strong id="stellarInfoDistance">2.54 million ly</strong>
+              </div>
+              <div class="detail-item">
+                <span>Diameter (Light Years)</span>
+                <strong id="stellarInfoDiameter">220,000 ly</strong>
+              </div>
+              <div class="detail-item">
+                <span>Year of Discovery</span>
+                <strong id="stellarInfoDiscovery">964</strong>
+              </div>
+            </div>
+          </article>
+          <br>
+          <div class="dual-grid">
+            <article class="glass-card visual-card">
+              <div class="card-head">
+                <span class="eyebrow">Reference Image</span>
+                <h3>Dataset Match</h3>
+                <p>Dataset reference for the predicted Messier object.</p>
+              </div>
+              <div class="image-frame medium">
+                <img id="referencePreview" src="../Dataset/Galaxy/M31.jpg" alt="Reference Messier object" />
+              </div>
+            </article>
+
+            <article class="glass-card visual-card featured-card">
+              <div class="card-head">
+                <span class="eyebrow">Star Map</span>
+                <h3>Matching Sky Map</h3>
+                <p>Sky map associated with the predicted object.</p>
+              </div>
+              <div class="image-frame medium">
+                <img id="starMapPreview" src="../Map_Dataset/Galaxy/M31.jpg" alt="Matching star map" />
+              </div>
+            </article>
+          </div>
+
+          <article class="glass-card matches-card">
+            <div class="card-head">
+              <span class="eyebrow">Top Matches</span>
+              <h3>Closest Messier Candidates</h3>
+            </div>
+
+            <div id="matchesGrid" class="matches-grid"></div>
+          </article>
+          <br>
+          <article id="details" class="glass-card details-card">
+            <div class="card-head">
+              <span class="eyebrow">Scientific Details</span>
+              <h3>Recognition Report</h3>
+            </div>
+
+            <div class="details-grid">
+              <div class="detail-item">
+                <span>Object Name</span>
+                <strong id="detailObjectName">M31 (Andromeda Galaxy)</strong>
+              </div>
+              <div class="detail-item">
+                <span>Messier ID</span>
+                <strong id="detailMessierId">M31</strong>
+              </div>
+              <div class="detail-item">
+                <span>Category</span>
+                <strong id="detailCategory">Galaxy</strong>
+              </div>
+              <div class="detail-item">
+                <span>Recognition Confidence</span>
+                <strong id="detailConfidence">100.0%</strong>
+              </div>
+              <div class="detail-item">
+                <span>Reference Image Available</span>
+                <strong>Yes</strong>
+              </div>
+              <div class="detail-item">
+                <span>Star Map Available</span>
+                <strong>Yes</strong>
+              </div>
+            </div>
+          </article>
+
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built for astronomical object recognition using the Messier catalog</p>
+        <div class="footer-tags">
+          <span>AI Recognition</span>
+          <span>Messier Dataset</span>
+          <span>Star Map Explorer</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/web/app.js"></script>
+  </body>
+</html>

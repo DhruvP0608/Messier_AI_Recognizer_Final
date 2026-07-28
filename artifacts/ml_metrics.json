@@ -1,0 +1,48 @@
+{
+  "evaluation": {
+    "image_size": "48x48 grayscale",
+    "train_samples": 440,
+    "test_samples": 330,
+    "class_count": 110,
+    "pca_components": 64,
+    "pca_explained_variance": 98.09,
+    "validation_protocol": "Augmented hold-out evaluation derived from the Messier reference catalog",
+    "notes": [
+      "Each Messier object contributes multiple train and test image variants generated from its reference image.",
+      "Metrics represent comparative classifier behavior on sparse-data astronomical recognition.",
+      "The deployed application still uses the similarity engine because it is the most reliable for one-reference-per-object inference."
+    ]
+  },
+  "models": [
+    {
+      "label": "KNN",
+      "accuracy": 100.0,
+      "macro_f1": 100.0,
+      "top3_accuracy": 100.0
+    },
+    {
+      "label": "SVM",
+      "accuracy": 100.0,
+      "macro_f1": 100.0,
+      "top3_accuracy": 100.0
+    },
+    {
+      "label": "Logistic Regression",
+      "accuracy": 100.0,
+      "macro_f1": 100.0,
+      "top3_accuracy": 100.0
+    },
+    {
+      "label": "Random Forest",
+      "accuracy": 100.0,
+      "macro_f1": 100.0,
+      "top3_accuracy": 100.0
+    },
+    {
+      "label": "MLP",
+      "accuracy": 100.0,
+      "macro_f1": 100.0,
+      "top3_accuracy": 100.0
+    }
+  ]
+}

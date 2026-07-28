@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MessierAI | ML Dashboard</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="stars"></div>
+
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <span>MessierAI</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="/">Recognizer</a>
+          <a href="/catalog">Catalog</a>
+          <a href="/dashboard#technicalSections">Dashboard</a>
+        </nav>
+
+        <a class="catalog-chip catalog-chip-link" href="/dashboard">ML Dashboard</a>
+      </header>
+
+      <main>
+        <section class="dashboard-hero">
+          <div class="hero-badge">Model Intelligence Overview</div>
+          <h1>
+            ML
+            <span>Dashboard</span>
+          </h1>
+          <p>
+            Explore the dataset structure, feature engineering pipeline, weighted similarity logic,
+            and deployment behavior behind the Messier object recognizer.
+          </p>
+        </section>
+
+        <section class="dashboard-kpis">
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Dataset Size</span>
+            <h3 id="kpiObjects">110</h3>
+            <p>Messier objects indexed for recognition.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Star Maps</span>
+            <h3 id="kpiMaps">110</h3>
+            <p>Matched sky maps linked to predictions.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Approach</span>
+            <h3 id="kpiApproach">Prototype Matching</h3>
+            <p id="kpiApproachDesc">Similarity-based recognition instead of heavy CNN training.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Inference</span>
+            <h3 id="kpiInference">Fast Local</h3>
+            <p id="kpiInferenceDesc">Runs fully on-device using lightweight image descriptors.</p>
+          </article>
+        </section>
+
+        <section class="dashboard-kpis metrics-kpis">
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Self-Match Accuracy</span>
+            <h3 id="metricAccuracy">100%</h3>
+            <p>Top-1 retrieval accuracy on the indexed Messier reference set.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Avg Runner-Up Score</span>
+            <h3 id="metricRunnerUp">-</h3>
+            <p>Average similarity score of the second-best candidate.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Avg Top-1 Gap</span>
+            <h3 id="metricGap">-</h3>
+            <p>Average margin between the best match and the runner-up.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Catalog Coverage</span>
+            <h3 id="metricCoverage">100%</h3>
+            <p>Reference objects that also have an associated star map.</p>
+          </article>
+        </section>
+
+        <section class="dashboard-kpis metrics-kpis">
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">PCA Components</span>
+            <h3 id="evalPcaComponents">-</h3>
+            <p>Reduced feature dimensions used by the comparative classifiers.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">PCA Variance</span>
+            <h3 id="evalPcaVariance">-</h3>
+            <p>Explained variance retained after dimensionality reduction.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Train Samples</span>
+            <h3 id="evalTrainSamples">-</h3>
+            <p>Augmented training instances used for comparative evaluation.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Test Samples</span>
+            <h3 id="evalTestSamples">-</h3>
+            <p>Held-out augmented samples used to compute classifier scores.</p>
+          </article>
+        </section>
+
+        <section class="dashboard-kpis metrics-kpis">
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">Training Photos</span>
+            <h3 id="trainingSamples">-</h3>
+            <p>Original training images used to build the SpaceDataset classifier.</p>
+          </article>
+          <article class="glass-card kpi-card">
+            <span class="eyebrow">SMOTE Augmented</span>
+            <h3 id="trainingSmoteSamples">-</h3>
+            <p>Total training examples after oversampling for rare classes.</p>
+          </article>
+        </section>
+
+        <section id="technicalSections" class="dashboard-grid">
+          <article class="glass-card dashboard-card wide-card">
+            <div class="card-head">
+              <span class="eyebrow">Deployment View</span>
+              <h3>Current Production Recognition Engine</h3>
+              <p>
+                The deployed system uses a lightweight similarity-based recognizer optimized for a sparse Messier dataset with one primary reference image per object.
+              </p>
+            </div>
+            <div class="quality-grid">
+              <div class="detail-item">
+                <span>Active Engine</span>
+                <strong>Weighted Prototype Matching</strong>
+              </div>
+              <div class="detail-item">
+                <span>Inference Style</span>
+                <strong>Fast Local Retrieval</strong>
+              </div>
+              <div class="detail-item">
+                <span>Best Fit For</span>
+                <strong>Single-reference object recognition</strong>
+              </div>
+              <div class="detail-item">
+                <span>Presentation Value</span>
+                <strong>Live prediction + star map retrieval</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card dashboard-card wide-card">
+            <div class="card-head">
+              <span class="eyebrow">System Flow</span>
+              <h3>Recognition Pipeline</h3>
+              <p>End-to-end view of how the system processes an uploaded astronomical image.</p>
+            </div>
+            <div id="pipelineSteps" class="pipeline-grid"></div>
+          </article>
+
+          <article class="glass-card dashboard-card">
+            <div class="card-head">
+              <span class="eyebrow">Dataset Profile</span>
+              <h3>Catalog Composition</h3>
+              <p>How the 110 Messier objects are distributed across major astronomical categories.</p>
+            </div>
+            <div id="categoryChart" class="bar-chart"></div>
+          </article>
+
+          <article class="glass-card dashboard-card">
+            <div class="card-head">
+              <span class="eyebrow">Feature Design</span>
+              <h3>Descriptor Blocks</h3>
+              <p>Feature families extracted from every query image and reference image.</p>
+            </div>
+            <div id="featureChart" class="bar-chart compact-chart"></div>
+          </article>
+
+          <article class="glass-card dashboard-card">
+            <div class="card-head">
+              <span class="eyebrow">Similarity Logic</span>
+              <h3>Distance Weights</h3>
+              <p>Weighted contributions used to compare uploaded images against Messier prototypes.</p>
+            </div>
+            <div id="weightsChart" class="bar-chart compact-chart"></div>
+          </article>
+
+          <article class="glass-card dashboard-card">
+            <div class="card-head">
+              <span class="eyebrow">Confidence Bands</span>
+              <h3>Decision Thresholds</h3>
+              <p>How similarity scores are converted into human-readable confidence labels.</p>
+            </div>
+            <div id="thresholdGrid" class="threshold-grid"></div>
+          </article>
+
+          <article class="glass-card dashboard-card wide-card">
+            <div class="card-head">
+              <span class="eyebrow">Image Quality</span>
+              <h3>Dataset Quality Summary</h3>
+              <p>Practical constraints and dataset characteristics that influence recognition output.</p>
+            </div>
+            <div class="quality-grid">
+              <div class="detail-item">
+                <span>Average Resolution</span>
+                <strong id="avgResolution">-</strong>
+              </div>
+              <div class="detail-item">
+                <span>Resolution Range</span>
+                <strong id="resolutionRange">-</strong>
+              </div>
+              <div class="detail-item">
+                <span>Low Resolution Images</span>
+                <strong id="lowResCount">-</strong>
+              </div>
+              <div class="detail-item">
+                <span>Grayscale Images</span>
+                <strong id="grayscaleCount">-</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass-card dashboard-card">
+            <div class="card-head">
+              <span class="eyebrow">Strengths</span>
+              <h3>Why This Model Works</h3>
+            </div>
+            <ul id="strengthList" class="insight-list"></ul>
+          </article>
+
+          <article class="glass-card dashboard-card">
+            <div class="card-head">
+              <span class="eyebrow">Limitations</span>
+              <h3>Known Constraints</h3>
+            </div>
+            <ul id="limitationList" class="insight-list"></ul>
+          </article>
+
+          <article class="glass-card dashboard-card wide-card">
+            <div class="card-head">
+              <span class="eyebrow">Metric Notes</span>
+              <h3>How To Interpret These Scores</h3>
+            </div>
+            <ul id="metricNotes" class="insight-list"></ul>
+          </article>
+
+          <article class="glass-card dashboard-card wide-card">
+            <div class="card-head">
+              <span class="eyebrow">Training Process</span>
+              <h3>How the Classifier Was Built</h3>
+              <p>
+                This chart summarizes the training workload and the role of SMOTE balancing during the run.
+              </p>
+            </div>
+            <div id="trainingChart" class="bar-chart compact-chart"></div>
+          </article>
+
+          <article class="glass-card dashboard-card wide-card">
+            <div class="card-head">
+              <span class="eyebrow">Comparative ML Results</span>
+              <h3>Measured Classifier Performance</h3>
+              <p>
+                These models are evaluated on the official SpaceDataset train/test split to provide a real benchmark snapshot across multiple ML approaches.
+              </p>
+            </div>
+            <div id="modelComparisonChart" class="bar-chart compact-chart"></div>
+            <div id="modelMetricsGrid" class="model-grid"></div>
+          </article>
+
+          <article class="glass-card dashboard-card wide-card">
+            <div class="card-head">
+              <span class="eyebrow">Validation Protocol</span>
+              <h3>Experimental Setup</h3>
+              <p id="validationProtocol">
+                Comparative evaluation protocol details will appear here.
+              </p>
+            </div>
+            <ul id="evaluationNotes" class="insight-list"></ul>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built for astronomical object recognition using the Messier catalog</p>
+        <div class="footer-tags">
+          <span>Similarity Model</span>
+          <span>Feature Engineering</span>
+          <span>Local Inference</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/web/dashboard.js"></script>
+  </body>
+</html>

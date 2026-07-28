@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MessierAI | Catalog</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-one"></div>
+      <div class="ambient ambient-two"></div>
+      <div class="stars"></div>
+
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">✦</div>
+          <span>MessierAI</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="/">Recognizer</a>
+          <a href="/catalog#catalogBrowser">Catalog</a>
+          <a href="/catalog#detailPanel">Details</a>
+        </nav>
+
+        <a class="catalog-chip catalog-chip-link" href="/catalog">Messier Catalog</a>
+      </header>
+
+      <main>
+        <section class="catalog-hero">
+          <div class="hero-badge">Browse All 110 Messier Objects</div>
+          <h1>
+            Messier
+            <span>Catalog</span>
+          </h1>
+          <p>
+            Explore Messier object imagery, sky maps, and object details in a polished browseable archive.
+          </p>
+        </section>
+
+        <section id="catalogBrowser" class="catalog-browser">
+          <div class="catalog-controls glass-card">
+            <div class="catalog-control-block">
+              <label for="catalogSearch">Search Objects</label>
+              <input id="catalogSearch" type="search" placeholder="Search M31, Andromeda, galaxy..." />
+            </div>
+            <div class="catalog-control-block">
+              <label for="catalogFilter">Category</label>
+              <select id="catalogFilter">
+                <option value="All">All categories</option>
+              </select>
+            </div>
+            <div class="catalog-stats">
+              <span class="eyebrow">Catalog Browser</span>
+              <strong id="catalogCount">110 objects</strong>
+            </div>
+          </div>
+
+          <div class="catalog-layout">
+            <section class="catalog-grid-panel glass-card">
+              <div class="card-head">
+                <span class="eyebrow">Messier Archive</span>
+                <h3>Browse Objects</h3>
+                <p>Select any object to inspect its Messier reference image, star map, and details.</p>
+              </div>
+              <div id="catalogGrid" class="catalog-grid"></div>
+            </section>
+
+            <aside id="detailPanel" class="catalog-detail glass-card">
+              <div class="card-head">
+                <span class="eyebrow" id="detailBadge">Featured Object</span>
+                <h3 id="catalogDetailTitle">Loading catalog...</h3>
+                <p id="catalogDetailDescription">Fetching Messier object details.</p>
+              </div>
+
+              <div class="catalog-detail-meta">
+                <div class="meta-row meta-box">
+                  <span>Messier ID</span>
+                  <strong id="catalogDetailId">M31</strong>
+                </div>
+                <div class="meta-row meta-box">
+                  <span>Category</span>
+                  <strong id="catalogDetailCategory">Galaxy</strong>
+                </div>
+              </div>
+
+              <div class="catalog-detail-visuals">
+                <div class="catalog-visual-block">
+                  <span class="eyebrow">Reference Image</span>
+                  <div class="image-frame medium">
+                    <img id="catalogReferenceImage" src="/Dataset/Galaxy/M31.jpg" alt="Catalog reference image" />
+                  </div>
+                </div>
+
+                <div class="catalog-visual-block">
+                  <span class="eyebrow">Star Map</span>
+                  <div class="image-frame medium">
+                    <img id="catalogStarMapImage" src="/Map_Dataset/Galaxy/M31.jpg" alt="Catalog star map" />
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built for astronomical object recognition using the Messier catalog</p>
+        <div class="footer-tags">
+          <span>AI Recognition</span>
+          <span>Messier Dataset</span>
+          <span>Star Map Explorer</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/web/catalog.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,87 @@
+{
+  "evaluation": {
+    "dataset_root": "SpaceDataset\\images",
+    "train_samples": 42651,
+    "test_samples": 42651,
+    "class_count": 7,
+    "validation_protocol": "Official train/test split from SpaceDataset"
+  },
+  "model": {
+    "name": "SGDClassifier (logistic regression objective)",
+    "feature_size": 235,
+    "accuracy": 65.82,
+    "macro_f1": 35.95,
+    "top3_accuracy": 84.58
+  },
+  "classes": [
+    "asteroids_comets",
+    "black_holes",
+    "galaxies",
+    "moons",
+    "nebulae",
+    "planets",
+    "stars"
+  ],
+  "class_metrics": {
+    "asteroids_and_comets": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 2110
+    },
+    "asteroids_comets": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 0
+    },
+    "black_holes": {
+      "precision": 38.91,
+      "recall": 28.74,
+      "f1_score": 33.06,
+      "support": 2874
+    },
+    "galaxies": {
+      "precision": 41.11,
+      "recall": 6.86,
+      "f1_score": 11.76,
+      "support": 1618
+    },
+    "moons": {
+      "precision": 57.65,
+      "recall": 63.8,
+      "f1_score": 60.57,
+      "support": 7539
+    },
+    "nebulae": {
+      "precision": 53.98,
+      "recall": 24.73,
+      "f1_score": 33.92,
+      "support": 2030
+    },
+    "planets": {
+      "precision": 60.9,
+      "recall": 66.97,
+      "f1_score": 63.79,
+      "support": 9769
+    },
+    "stars": {
+      "precision": 78.61,
+      "recall": 91.44,
+      "f1_score": 84.54,
+      "support": 16711
+    },
+    "macro avg": {
+      "precision": 41.39,
+      "recall": 35.32,
+      "f1_score": 35.95,
+      "support": 42651
+    },
+    "weighted avg": {
+      "precision": 61.69,
+      "recall": 65.82,
+      "f1_score": 62.73,
+      "support": 42651
+    }
+  }
+}
