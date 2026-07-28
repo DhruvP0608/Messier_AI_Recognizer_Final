@@ -1,6 +1,7 @@
 services:
   - type: web
     name: messier-ai-api
+    plan: free
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: python server.py
